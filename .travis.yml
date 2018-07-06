@@ -11,10 +11,15 @@ before_install:
   - popd
   - git clone https://github.com/probcomp/bayesrest.git
   - pushd bayesrest
-  - git checkout e031531
+  - git checkout falcon-refactor
   - docker-compose up -d
   - popd
 script:
   - curl http://localhost:5000/not-found
 after_script:
+  - pushd nginx-proxy
   - docker-compose down
+  - popd
+  - pushd bayesrest
+  - docker-compose down
+  - popd
