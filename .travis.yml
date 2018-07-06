@@ -6,7 +6,7 @@ services:
 
 before_install:
   - git clone https://github.com/probcomp/nginx-proxy.git
-  - pushd nginx-probcomp
+  - pushd nginx-proxy
   - docker-compose up -d
   - popd
   - git clone https://github.com/probcomp/bayesrest.git
