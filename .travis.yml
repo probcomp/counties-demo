@@ -1,0 +1,16 @@
+dist: trusty
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - git clone https://github.com/probcomp/bayesrest.git
+  - pushd bayesrest
+  - git checkout e031531
+  - docker-compose up -d
+  - popd
+script:
+  - curl http://localhost:5000/not-found
+after_script:
+  - docker-compose down
