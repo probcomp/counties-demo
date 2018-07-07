@@ -39,4 +39,4 @@ services:
     ports:
       - "8888:8888"
     volumes:
-      - ./demo:/home/jovyan/demo:rw
+      - ./demo:/home/jovyan/notebook:rw
