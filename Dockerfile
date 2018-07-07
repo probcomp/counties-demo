@@ -3,12 +3,13 @@ FROM jupyter/minimal-notebook:92fe05d1e7e5
 
 USER root
 
-COPY *.ipynb /home/$NB_USER/
-
-# need to run this here so the fix-permissions script succeeds later
-RUN chown -R $NB_USER /home/$NB_USER
+COPY ./requirements.txt /tmp/requirements.txt
 
 USER $NB_USER
 
-ENTRYPOINT      ["tini", "--"]
-CMD             ["start-notebook.sh"]
+RUN /opt/conda/bin/pip install -r /tmp/requirements.txt
+
+ENTRYPOINT ["tini", "--"]
+
+# The start-notebook.sh script is about late-creation of the jovyan user and housekeeping to ensure permissions are correct for that user in the home directory and the conda directory.
+CMD ["start-notebook.sh"]

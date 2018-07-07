@@ -5,14 +5,14 @@ services:
   - docker
 
 before_install:
+  - make fetch
   - git clone https://github.com/probcomp/nginx-proxy.git
-  - pushd nginx-proxy
-  - popd
   - git clone https://github.com/probcomp/bayesrest.git
   - pushd bayesrest
   - git checkout falcon-refactor
   - cp config-example.yaml config.yaml
   - popd
+  - mv database.bdb bayesrest
   - docker-compose up
 script:
   - curl http://localhost:5000/not-found

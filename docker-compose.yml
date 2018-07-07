@@ -22,8 +22,7 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
   bayesrest:
     working_dir: "/app"
-    build:
-      context: ./bayesrest
+    build: ./bayesrest
     networks:
       - probcomp
     environment:
@@ -33,3 +32,11 @@ services:
       - ./bayesrest:/app:cached
     ports:
       - "5000:5000"
+  notebook:
+    build: .
+    networks:
+      - probcomp
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./demo:/home/jovyan/demo:rw
