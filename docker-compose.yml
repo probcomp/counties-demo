@@ -25,10 +25,7 @@ services:
     build:
       context: ./bayesrest
     networks:
-      default:
-      probcomp:
-        aliases:
-          - bayesapi
+      - probcomp
     environment:
       PYTHONPATH:
         '/app'
@@ -36,8 +33,3 @@ services:
       - ./bayesrest:/app:cached
     ports:
       - "5000:5000"
-
-  counties-demo:
-    image: jupyter/minimal-notebook:92fe05d1e7e5
-    networks:
-      probcomp:
