@@ -1,11 +1,9 @@
-DOC_ID = 13mTOC6rW6oAOcK6PvoPY2D6shu8PbxC3
-BDB_URL = https://drive.google.com/file/d/$(DOC_ID)/view
 BDB = database.bdb
 IN = bayesrest_api_demo.ipynb
 OUT = bayesrest_api_demo_out.ipynb
 
-$(BDB) :
-	wget --quiet --output-document=$(BDB) $(BDB_URL)
+$(BDB) : # TODO: Write a task to fetch the `bdb`. file
+	echo "Not yet implemented." && exit 1
 
 $(OUT): $(IN) $(BDB)
 	docker-compose run notebook jupyter nbconvert\
@@ -16,8 +14,8 @@ $(OUT): $(IN) $(BDB)
 
 fetch: $(BDB)
 
-test: $(OUT)
-	echo "Not yet implemented."
+test: $(OUT) # TODO: Use docker-compose run to assert on based on the contents of $(OUT)
+	echo "Not yet implemented." && exit 1
 
 clean:
 	rm $(BDB) $(OUT)
