@@ -15,6 +15,6 @@ before_install:
   - mv database.bdb bayesrest
   - docker-compose up
 script:
-  - curl http://localhost:5000/not-found
+  - make test
 after_script:
   - docker-compose down

@@ -2,6 +2,8 @@ BDB = database.bdb
 IN = bayesrest_api_demo.ipynb
 OUT = bayesrest_api_demo_out.ipynb
 
+# These commands are meant to be invoked from the Docker host!
+
 $(BDB) : # TODO: Write a task to fetch the `bdb`. file
 	echo "Not yet implemented." && exit 1
 
