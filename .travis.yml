@@ -11,8 +11,8 @@ before_install:
   - git checkout falcon-refactor
   - cp config-example.yaml config.yaml
   - popd
-  - mv database.bdb bayesrest
-  - docker-compose up
+  - cp database.bdb bayesrest
+  - docker-compose up -d
 script:
   - make test
 after_script:
