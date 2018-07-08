@@ -38,6 +38,8 @@ services:
       - probcomp
     ports:
       - "8888:8888"
+    environment:
+      NB_UID: ${NB_UID}
     volumes:
       - ./demo:/home/jovyan/demo:rw
     depends_on:

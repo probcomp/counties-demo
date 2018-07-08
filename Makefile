@@ -2,7 +2,10 @@ BDB := database.bdb
 IN := demo/demo.ipynb
 OUT := out.ipynb
 
+NB_UID := $(shell id -u)
+
 $(OUT): $(IN) $(BDB)
+	  @NB_UID=${NB_UID}\
 		docker-compose\
 			-f docker-compose.yml\
 			-f docker-compose.test.yml\
