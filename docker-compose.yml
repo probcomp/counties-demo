@@ -40,3 +40,6 @@ services:
       - "8888:8888"
     volumes:
       - ./demo:/home/jovyan/demo:rw
+    depends_on:
+      - bayesrest
+      - nginx-proxy

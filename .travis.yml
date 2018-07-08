@@ -12,7 +12,6 @@ before_install:
   - cp config-example.yaml config.yaml
   - popd
   - cp database.bdb bayesrest
-  - docker-compose up -d
 script:
   - make test
 after_script:
