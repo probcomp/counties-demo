@@ -6,6 +6,7 @@ $(OUT): $(IN) $(BDB)
 		docker-compose\
 			-f docker-compose.yml\
 			-f docker-compose.test.yml\
+			-u `id -u`\
 			run notebook jupyter nbconvert\
 			--to notebook\
 			--execute\
