@@ -11,9 +11,9 @@ COPY files/docker-entrypoint.sh /usr/local/bin/
 
 USER $NB_USER
 
-COPY ./requirements.txt /tmp/requirements.txt
+COPY requirements.txt /tmp/requirements.txt
 RUN /opt/conda/bin/pip install -r /tmp/requirements.txt
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["tini", "--", "docker-entrypoint.sh"]
 CMD ["start-notebook.sh"]
 

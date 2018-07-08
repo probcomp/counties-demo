@@ -2,15 +2,22 @@ BDB := database.bdb
 IN := work/demo.ipynb
 OUT := out.ipynb
 
-SHELL := /bin/bash
+NB_UID := $(shell id -u)
 
-$(OUT): $(IN) $(BDB)
-		docker-compose\
+.PHONY: debug
+debug:
+	@NB_UID=${NB_UID} docker-compose\
 			-f docker-compose.yml\
 			-f docker-compose.test.yml\
-			run\
-			-u jovyan\
-			notebook jupyter nbconvert\
+			run notebook\
+			bash
+
+$(OUT): $(IN) $(BDB)
+		@NB_UID=${NB_UID} docker-compose\
+			-f docker-compose.yml\
+			-f docker-compose.test.yml\
+			run notebook\
+			jupyter nbconvert\
 			--to notebook\
 			--execute\
 			--ExecutePreprocessor.timeout=60\
