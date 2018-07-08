@@ -6,8 +6,9 @@ $(OUT): $(IN) $(BDB)
 		docker-compose\
 			-f docker-compose.yml\
 			-f docker-compose.test.yml\
+			run\
 			-u `id -u`\
-			run notebook jupyter nbconvert\
+			notebook jupyter nbconvert\
 			--to notebook\
 			--execute\
 			--ExecutePreprocessor.timeout=60\
