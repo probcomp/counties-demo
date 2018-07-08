@@ -2,6 +2,7 @@ BDB := database.bdb
 IN := demo/demo.ipynb
 OUT := out.ipynb
 
+SHELL := /bin/bash
 NB_UID := $(shell id -u)
 
 $(OUT): $(IN) $(BDB)

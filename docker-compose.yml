@@ -38,7 +38,9 @@ services:
       - probcomp
     ports:
       - "8888:8888"
+    user: root
     environment:
+      GRANT_SUDO: 'yes'
       NB_UID: ${NB_UID}
     volumes:
       - ./demo:/home/jovyan/demo:rw
