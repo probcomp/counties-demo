@@ -40,7 +40,6 @@ services:
       - "8888:8888"
     user: root
     environment:
-      GRANT_SUDO: 'yes' # is this really necessary?
       NB_UID: ${NB_UID}
     volumes:
       - ./work:/home/jovyan/work
