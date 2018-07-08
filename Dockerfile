@@ -10,11 +10,11 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-USER $NB_USER
-
 RUN /opt/conda/bin/pip install -r /tmp/requirements.txt
 
-ENTRYPOINT ["dockerize", "-wait", "tcp://bayesrest:5000"]
+COPY files/docker-entrypoint.sh /usr/local/bin/
 
-# The start-notebook.sh script is about late-creation of the jovyan user and housekeeping to ensure permissions are correct for that user in the home directory and the conda directory.
+ENTRYPOINT ["dockerize", "-wait", "tcp://bayesrest:5000"]
 CMD ["start-notebook.sh"]
+
+USER $NB_USER
