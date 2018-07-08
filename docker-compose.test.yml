@@ -1,0 +1,5 @@
+version: "3"
+
+services:
+ notebook:
+    command: echo 'no op'
