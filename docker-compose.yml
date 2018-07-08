@@ -38,9 +38,6 @@ services:
       - probcomp
     ports:
       - "8888:8888"
-    user: root
-    environment:
-      - NB_USER=${USER}
     volumes:
       - ./work:/home/jovyan/work
     depends_on:

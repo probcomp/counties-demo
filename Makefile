@@ -3,10 +3,8 @@ IN := work/demo.ipynb
 OUT := out.ipynb
 
 SHELL := /bin/bash
-NB_UID := $(shell id -u)
 
 $(OUT): $(IN) $(BDB)
-	  @NB_UID=${NB_UID}\
 		docker-compose\
 			-f docker-compose.yml\
 			-f docker-compose.test.yml\
