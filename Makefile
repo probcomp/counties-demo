@@ -1,5 +1,5 @@
 BDB := database.bdb
-IN := demo/demo.ipynb
+IN := work/demo.ipynb
 OUT := out.ipynb
 
 SHELL := /bin/bash

@@ -40,10 +40,9 @@ services:
       - "8888:8888"
     user: root
     environment:
-      GRANT_SUDO: 'yes'
-      NB_UID: ${NB_UID}
+      - NB_USER=${USER}
     volumes:
-      - ./demo:/home/jovyan/demo:rw
+      - ./work:/home/jovyan/work
     depends_on:
       - bayesrest
       - nginx-proxy
