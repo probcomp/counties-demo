@@ -22,7 +22,7 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
   bayesrest:
     working_dir: "/app"
-    build: ../bayesrest
+    image: probcomp/bayesrest
     networks:
       - probcomp
     environment:
@@ -32,7 +32,6 @@ services:
       TABLE_NAME: 'data'
       POPULATION_NAME: 'data'
     volumes:
-      - ../bayesrest:/app:cached
       - ./bdb:/app/bdb
     ports:
       - "5000:5000"
