@@ -32,7 +32,7 @@ strip: $(IN)
 		@NB_UID=${NB_UID} docker-compose\
 			-f docker-compose.yml\
 			-f docker-compose.test.yml\
-			run notebook\
+			exec notebook\
 			nbstripout $(IN)
 
 test: $(BDB) $(OUT) # TODO: Use docker-compose run to assert on based on the contents of $(OUT)
