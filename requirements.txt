@@ -1,1 +1,4 @@
+geopandas
+plotly
 requests
+shapely

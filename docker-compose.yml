@@ -22,14 +22,18 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
   bayesrest:
     working_dir: "/app"
-    build: ./bayesrest
+    build: ../bayesrest
     networks:
       - probcomp
     environment:
-      PYTHONPATH:
-        '/app'
+      PYTHONPATH: '/app'
+      CONFIG_FILE_PATH: '/app/config-example.yaml'
+      BDB_FILE: '/app/bdb/database.bdb'
+      TABLE_NAME: 'data'
+      POPULATION_NAME: 'data'
     volumes:
-      - ./bayesrest:/app:cached
+      - ../bayesrest:/app:cached
+      - ./bdb:/app/bdb
     ports:
       - "5000:5000"
   notebook:
