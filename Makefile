@@ -20,6 +20,11 @@ up: $(IN)
 		@NB_UID=${NB_UID} docker-compose\
 			up
 
+dev: $(IN)
+	@NB_UID=${NB_UID} docker-compose\
+		-f docker-compose.dev.yml\
+		up
+
 strip: $(IN)
 		@NB_UID=${NB_UID} docker-compose\
 			-f docker-compose.yml\
