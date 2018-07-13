@@ -8,11 +8,6 @@ before_install:
   # https://docs.travis-ci.com/user/customizing-the-build/#Authentication
   - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
   - git lfs pull
-  - git clone https://github.com/probcomp/bayesrest.git
-  - pushd bayesrest
-  - cp config-example.yaml config.yaml
-  - popd
-  - cp database.bdb bayesrest
 script:
   - make test
 after_script:
