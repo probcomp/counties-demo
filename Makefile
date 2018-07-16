@@ -1,4 +1,4 @@
-BDB := bdb/database.bdb
+BDB := bdb/counties_v6.bdb
 IN := work/demo.ipynb
 OUT := out.ipynb
 TAR := loom/loom.tar
