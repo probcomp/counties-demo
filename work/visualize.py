@@ -2,7 +2,6 @@ import numpy
 import plotly.figure_factory as figure_factory
 import plotly.graph_objs as graph_objs
 import plotly.offline as offline
-import plotly.plotly as py
 
 # Configure plotly to run in offline mode
 offline.init_notebook_mode(connected=False)
