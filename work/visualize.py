@@ -40,10 +40,7 @@ def choropleth(fips=[],
                title='',
                legend_title=None,
                color_scale=None):
-    assert len(fips) == len(
-        values
-    ), 'Length of fips ({}) and length of values ({}) do not match.'.format(
-        len(fips), len(values))
+    assert len(fips) == len(values)
 
     default_color_scale = [
         '#f7fbff', '#ebf3fb', '#deebf7', '#d2e3f3', '#c6dbef', '#b3d2e9',
@@ -76,10 +73,7 @@ def choropleth(fips=[],
 
 
 def scatterplot(xs=[], ys=[], text=[], title='', x_axis='', y_axis=''):
-    assert len(xs) == len(ys) == len(text),\
-        'Length of xs ({}) and ys ({}) and text ({}) must match.'.format(
-            len(xs), len(ys), len(text)
-        )
+    assert len(xs) == len(ys) == len(text)
 
     trace = graph_objs.Scatter(x=xs, y=ys, text=text, mode='markers')
 
