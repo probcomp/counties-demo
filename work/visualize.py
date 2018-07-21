@@ -9,7 +9,10 @@ offline.init_notebook_mode(connected=False)
 
 def bar_chart(columns, title='', x_axis=''):
     """Takes an array of dictionaries that have the keys 'column' and 'score'.
-    The value for the 'column' key is a string representing the name of the column.
+
+    The value for the 'column' key is a string representing the name of the
+    column.
+
     The value for the 'score' key is an integer.
     """
     short_names = (column['column'][:40] for column in columns)
@@ -74,7 +77,9 @@ def choropleth(fips=[],
 
 def scatterplot(xs=[], ys=[], text=[], title='', x_axis='', y_axis=''):
     assert len(xs) == len(ys) == len(text),\
-        'Length of xs ({}) and ys ({}) and text ({}) must match.'.format(len(xs), len(ys), len(text))
+        'Length of xs ({}) and ys ({}) and text ({}) must match.'.format(
+            len(xs), len(ys), len(text)
+        )
 
     trace = graph_objs.Scatter(x=xs, y=ys, text=text, mode='markers')
 
