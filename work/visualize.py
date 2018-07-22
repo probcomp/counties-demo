@@ -65,7 +65,7 @@ def choropleth(fips=[],
             'width': 0.5
         },
         show_hover=True,
-        centroid_marker={'opacity': 0},
+        centroid_marker=dict(opacity=0),
         asp=2.9,
         title=title,
         showlegend=(legend_title is not None),
