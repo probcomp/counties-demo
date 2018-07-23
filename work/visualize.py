@@ -7,7 +7,7 @@ import plotly.offline as offline
 offline.init_notebook_mode(connected=False)
 
 
-def bar_chart(columns, title='', x_axis=''):
+def make_bar_chart(columns, title='', x_axis=''):
     """Takes an array of dictionaries that have the keys 'column' and 'score'.
 
     The value for the 'column' key is a string representing the name of the
@@ -35,11 +35,11 @@ def bar_chart(columns, title='', x_axis=''):
     return graph_objs.Figure(data=data, layout=layout)
 
 
-def choropleth(fips=[],
-               values=[],
-               title='',
-               legend_title=None,
-               color_scale=None):
+def make_choropleth(fips=[],
+                    values=[],
+                    title='',
+                    legend_title=None,
+                    color_scale=None):
     assert len(fips) == len(values)
 
     default_color_scale = [
@@ -72,7 +72,7 @@ def choropleth(fips=[],
         **(dict(legend_title=legend_title) if legend_title else {}))
 
 
-def scatterplot(xs=[], ys=[], text=[], title='', x_axis='', y_axis=''):
+def make_scatterplot(xs=[], ys=[], text=[], title='', x_axis='', y_axis=''):
     assert len(xs) == len(ys) == len(text)
 
     trace = graph_objs.Scatter(x=xs, y=ys, text=text, mode='markers')
