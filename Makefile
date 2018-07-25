@@ -7,17 +7,15 @@ NB_UID := $(shell id -u)
 
 $(OUT): $(IN) $(BDB)
 		chmod 0666 bdb/counties_v6.bdb
-		sha256sum bdb/counties_v6.bdb
 		@NB_UID=${NB_UID} docker-compose\
 			-f docker-compose.yml\
 			-f docker-compose.test.yml\
-			run -d notebook\
+			run notebook\
 			jupyter nbconvert\
 			--to notebook\
 			--execute\
 			--ExecutePreprocessor.timeout=60\
 			--output $(notdir ${OUT}) $(IN)
-		docker-compose logs -f
 		mv $(dir ${IN})$(notdir ${OUT}) $(OUT)
 
 
