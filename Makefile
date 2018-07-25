@@ -3,17 +3,14 @@ IN := work/demo.ipynb
 OUT := out.ipynb
 TAR := loom/loom.tar
 
-NB_UID := $(shell id -u)
+NB_UID := 1000
 
 $(OUT): $(IN) $(BDB)
-		whoami
 		id
-		sudo chown ${NB_UID} bdb
-		sudo chown ${NB_UID} bdb/counties_v6.bdb
-		sudo chmod 777 bdb
-		sudo chmod 666 bdb/counties_v6.bdb
-		ls -ld bdb
-		ls -l bdb/*
+		sudo chown -R ${NB_UID} bdb
+		sudo chown -R ${NB_UID} loom
+		ls -l bdb
+		ls -l loom
 		@NB_UID=${NB_UID} docker-compose\
 			-f docker-compose.yml\
 			-f docker-compose.test.yml\
