@@ -6,6 +6,7 @@ TAR := loom/loom.tar
 NB_UID := $(shell id -u)
 
 $(OUT): $(IN) $(BDB)
+		chmod 0666 bdb/counties_v6.bdb
 		sha256sum bdb/counties_v6.bdb
 		@NB_UID=${NB_UID} docker-compose\
 			-f docker-compose.yml\
