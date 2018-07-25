@@ -6,7 +6,8 @@ TAR := loom/loom.tar
 NB_UID := $(shell id -u)
 
 $(OUT): $(IN) $(BDB)
-		sudo chown $(USER):$(USER) bdb/counties_v6.bdb
+		sudo chown 1000:1000 bdb/counties_v6.bdb
+		sudo chmod 0755 bdb
 		sudo chmod 0666 bdb/counties_v6.bdb
 		@NB_UID=${NB_UID} docker-compose\
 			-f docker-compose.yml\
