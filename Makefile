@@ -6,16 +6,18 @@ TAR := loom/loom.tar
 NB_UID := $(shell id -u)
 
 $(OUT): $(IN) $(BDB)
-		chmod 0666 bdb/counties_v6.bdb
+		sudo chown $(USER):$(USER) bdb/counties_v6.bdb
+		sudo chmod 0666 bdb/counties_v6.bdb
 		@NB_UID=${NB_UID} docker-compose\
 			-f docker-compose.yml\
 			-f docker-compose.test.yml\
-			run notebook\
+			run -d notebook\
 			jupyter nbconvert\
 			--to notebook\
 			--execute\
 			--ExecutePreprocessor.timeout=60\
 			--output $(notdir ${OUT}) $(IN)
+		docker-compose logs -f
 		mv $(dir ${IN})$(notdir ${OUT}) $(OUT)
 
 
