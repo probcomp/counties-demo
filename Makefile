@@ -10,8 +10,8 @@ $(OUT): $(IN) $(BDB)
 		id
 		sudo chown ${NB_UID} bdb
 		sudo chown ${NB_UID} bdb/counties_v6.bdb
-		sudo chmod 755 bdb
-		sudo chmod 644 bdb/counties_v6.bdb
+		sudo chmod 777 bdb
+		sudo chmod 666 bdb/counties_v6.bdb
 		ls -ld bdb
 		ls -l bdb/*
 		@NB_UID=${NB_UID} docker-compose\
