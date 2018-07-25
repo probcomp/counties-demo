@@ -9,13 +9,15 @@ $(OUT): $(IN) $(BDB)
 		@NB_UID=${NB_UID} docker-compose\
 			-f docker-compose.yml\
 			-f docker-compose.test.yml\
-			run notebook\
+			run -d notebook\
 			jupyter nbconvert\
 			--to notebook\
 			--execute\
 			--ExecutePreprocessor.timeout=60\
 			--output $(notdir ${OUT}) $(IN)
+		docker-compose logs -f
 		mv $(dir ${IN})$(notdir ${OUT}) $(OUT)
+
 
 up: $(IN)
 		@NB_UID=${NB_UID} docker-compose\
