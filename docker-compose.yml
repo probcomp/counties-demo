@@ -33,6 +33,7 @@ services:
       POPULATION_NAME: 'data'
       BACKEND: 'loom'
       LOOM_PATH: '/app/loom/'
+      NB_UID: 1000
     volumes:
       - ./bdb:/app/bdb
       - ./loom/loom-model-files-counties-v6:/app/loom

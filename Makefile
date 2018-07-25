@@ -7,8 +7,6 @@ NB_UID := 1000
 
 $(OUT): $(IN) $(BDB)
 		id
-		sudo chown -R ${NB_UID} bdb
-		sudo chown -R ${NB_UID} loom
 		ls -l bdb
 		ls -l loom
 		@NB_UID=${NB_UID} docker-compose\
