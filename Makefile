@@ -23,6 +23,7 @@ up: $(IN)
 
 dev: $(IN)
 	@NB_UID=${NB_UID} docker-compose\
+		-f docker-compose.yml\
 		-f docker-compose.dev.yml\
 		up
 
