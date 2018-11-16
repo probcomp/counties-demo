@@ -6,7 +6,7 @@ The `counties-demo` repo contains a Jupyter notebook that demonstrates the capab
 
 ## Getting Started
 
-Before you can use this repo, you will need to install [Git LFS](https://git-lfs.github.com/).  If you're on a Mac and have homebrew installed, this should be as simple as `brew install git-lfs`.
+Before you can use this repo, you will need to install [Git LFS](https://git-lfs.github.com/).  If you're on a Mac and have homebrew installed, this should be as simple as `brew install git-lfs`, followed by `git lfs install`.
 
 Once you have Git LFS installed, clone this repo, open it in your terminal, and run `make extract && make up`.
 
